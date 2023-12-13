@@ -1,5 +1,5 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Cat } from '../models/cat.model';
 import { FormBuilder, FormControl, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -14,7 +14,7 @@ import { FormBuilder, FormControl, NgForm, ReactiveFormsModule, Validators } fro
   styleUrl: './modify-cat.component.scss',
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class ModifyCatComponent implements OnInit {
+export class ModifyCatComponent {
   _cat: Cat | undefined
   @Input() set cat (cat: Cat | undefined) {
     if(cat) {
@@ -36,9 +36,6 @@ export class ModifyCatComponent implements OnInit {
   })
 
   constructor(private readonly fb: FormBuilder) {}
-
-  ngOnInit() {
-  }
 
   save() {
     if(this.catForm.valid) {
