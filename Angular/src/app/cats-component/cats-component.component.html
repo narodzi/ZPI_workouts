@@ -1,0 +1,29 @@
+<ng-container *ngIf="cats$ | async as cats">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Imię</th>
+            <th>Rasa</th>
+            <th>Wiek</th>
+            <th>Kolor</th>
+            <th>Akcja</th>
+        </tr>
+        <tr *ngFor="let cat of cats">
+            <td>{{cat.id}}</td>
+            <td>{{cat.name}}</td>
+            <td>{{cat.race}}</td>
+            <td>{{cat.age}}</td>
+            <td>{{cat.color}}</td>
+            <td>
+                <button (click)="deleteCat(cat.id!)">Usuń</button>
+                <button (click)="editCat(cat)">Edytuj</button>
+            </td>
+        </tr>
+    </table>
+</ng-container>
+
+<br>
+<button *ngIf="!formVisible" (click)="addCat()">Dodaj kota</button>
+<button *ngIf="formVisible" (click)="closeForm()">Zamknij formularz</button>
+
+<app-modify-cat *ngIf="formVisible" [cat]="editedCat" (saveCat)="handleSaveCat($event)"></app-modify-cat>

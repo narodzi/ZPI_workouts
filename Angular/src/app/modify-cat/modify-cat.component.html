@@ -1,0 +1,21 @@
+<h2 *ngIf="cat">Edycja kota</h2>
+<h2 *ngIf="!cat">Nowy kot</h2>
+
+
+<label for="name">Imię</label>
+<input id="name" name="name" [formControl]="catForm.controls.name"/>
+<br>
+
+<label for="race">Rasa</label>
+<input id="race" name="race" [formControl]="catForm.controls.race"/>
+<br>
+
+<label for="age">Wiek</label>
+<input id="age" name="age" [formControl]="catForm.controls.age"/>
+<br>
+
+<label for="color">Kolor</label>
+<input id="color" name="color" [formControl]="catForm.controls.color"/>
+<br>
+
+<button (click)="save()">Zapisz</button>
